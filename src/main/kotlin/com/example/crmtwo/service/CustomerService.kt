@@ -1,6 +1,6 @@
 package com.example.crmtwo.service
 
-import CustomerActivityView
+import com.example.crmtwo.entity.ActivityView
 import com.example.crmtwo.dto.CustomerDto
 import com.example.crmtwo.mapper.CustomerMapper
 import com.example.crmtwo.repository.CustomerRepository
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service
 @Service
 class CustomerService(
     private val customerRepository: CustomerRepository,
-    private val customerActivityViewRepository: CustomerActivityViewRepository // Inyección del nuevo repositorio
+    private val customerActivityViewRepository: CustomerActivityViewRepository
 ) {
 
     fun getAllCustomers(): List<CustomerDto> {
@@ -28,7 +28,7 @@ class CustomerService(
         return CustomerMapper.toDto(customer)
     }
 
-    fun listCustomerActivities(): List<CustomerActivityView> {
+    fun listCustomerActivities(): List<ActivityView> {
         return customerActivityViewRepository.findAll()
     }
 }

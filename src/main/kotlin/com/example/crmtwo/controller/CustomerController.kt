@@ -1,6 +1,6 @@
 package com.example.crmtwo.controller
 
-import CustomerActivityView
+import com.example.crmtwo.entity.ActivityView
 import com.example.crmtwo.dto.CustomerDto
 import com.example.crmtwo.service.CustomerService
 import org.springframework.web.bind.annotation.*
@@ -26,7 +26,7 @@ class CustomerController(private val customerService: CustomerService) {
 
     // Nuevo endpoint para listar las actividades de los clientes desde la vista
     @GetMapping("/activities")
-    fun listCustomerActivities(): List<CustomerActivityView> {
+    fun listCustomerActivities(): List<ActivityView> {
         return customerService.listCustomerActivities()
     }
 }
